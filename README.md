@@ -1,10 +1,12 @@
-<div align="center">
+<div style="text-align:center">
 
 # Shell Backup Scripts
 
 <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" height="100px" width="100px" alt="bash-logo"/>
 
 ##### A collection of small bash scripts for backup a directory or files with no dependencies.
+
+</div>
 
 ## Scripts
 
