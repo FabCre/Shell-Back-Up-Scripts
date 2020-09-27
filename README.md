@@ -2,7 +2,7 @@
 
 <img src="https://cloud.githubusercontent.com/assets/2059754/24601246/753a7f36-1858-11e7-9d6b-7a0e64fb27f7.png" height="100px" width="100px" alt="bash-logo"/>
 
-##### A collection of small bash scripts for backup a directory or files with no dependencies.
+##### A collection of small bash scripts for backup a directory or files with no dependencies. All of these scripts have been tested on Linux.
 
 ## Scripts
 
@@ -58,19 +58,19 @@ Enable the service:
 sudo systemctl enable thunderbird-backup.service
 ```
 
-Enabling a service doesn't start it, it only sets it to be launched at boot time. To start the service now, you must use systemctl with the start option:
+Enabling a service doesn't start it, it only sets it to be launched at boot time. To start the service now:
 ```
 sudo systemctl start thunderbird-backup.service
 ```
-After manually starting the service or after rebooting the computer, we can verify that our service is running correctly:
+After manually starting the service, check if the service is running correctly:
 ```
 sudo systemctl status thunderbird-backup.service
 ```
-To stop the service:
+To stop the service, if needed:
 ```
 sudo systemctl stop thunderbird-backup.service
 ```
-To disable the service:
+To disable the service, if needed:
 ```
 sudo systemctl disable thunderbird-backup.service
 ```
@@ -100,11 +100,11 @@ Enable the timer:
 sudo systemctl enable thunderbird-backup.timer
 ```
 
-Enabling a timer doesn't start it, it only sets it to be launched at boot time. To start the timer now, you must use systemctl with the start option:
+Enabling a timer doesn't start it. To start the timer now:
 ```
 sudo systemctl start thunderbird-backup.timer
 ```
-After manually starting the timer or after rebooting the computer, we can verify that our timer is running correctly:
+After manually starting the timer, check if the timer is running correctly:
 ```
 sudo systemctl list-timers --all
 ```
