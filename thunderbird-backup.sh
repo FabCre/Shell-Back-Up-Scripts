@@ -10,8 +10,8 @@ fi
 TODAY=$(date '+%Y-%m-%d')                                               # format date 2020-06-28
 BACKUP_FOLDER_PATH=/home/panda/Documents/Backups/                       # path for the output
 BACKUP_FILENAME=thunderbird-profile-$TODAY                              # name of the generated back up
-THUNDERBIRD_PROFILE_PATH=/home/panda/.thunderbird/panda.default-release # path to the profil to save
-LOCK_FILE_PATH=/tmp/thunderbird-backup.lock
+THUNDERBIRD_PROFILE_PATH=/home/panda/.thunderbird/panda.default-release # path to the profile to save
+LOCK_FILE_PATH=/home/panda/Documents/Backups/thunderbird-backup.lock    # path to the temporary lock file
 IS_THUNDERBIRD_RUNNING=0
 ATTEMPTS_TO_STOP_THUNDERBIRD=5
 
@@ -19,18 +19,17 @@ ATTEMPTS_TO_STOP_THUNDERBIRD=5
 
 # Check if the file already exists
 test -e "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" &&
-echo "The file: $BACKUP_FILENAME.tar.gz already exists. Deleting..." &&
+echo "The file: $BACKUP_FILENAME.tar.gz already exists. Removing..." &&
 rm -f "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" ||
 echo "The file $BACKUP_FILENAME.tar.gz doesn't exists. Backup creating..."
 
 # -----------------------------------------------------------------------
 
-# TODO Protect contre le controle + C pour fermer le script
+# TODO Protect contre le controle + C pour fermer le script et ask un confirmation
 # TODO Ne pas avoir plus de 3 sauvegarde, trouver le moyen de supprimer les vieilles
 # TODO Faire un fichier de log
 # TODO Faire une copie sur un remote ou bien sur disque a mount => créer une seconde option pour avoir un second chemin de back up sur un disque de save.
 # TODO Faire un readme
-# TODO Tache systemd
 
 # -----------------------------------------------------------------------
 
@@ -115,7 +114,17 @@ popd >/dev/null || exit
 
 # -----------------------------------------------------------------------
 
-# Show notify message that backup created
+# Check if the lock file exists and remove it
+
+test -e $LOCK_FILE_PATH &&
+echo "Removing lock file..." &&
+rm -f $LOCK_FILE_PATH &&
+echo "The Lock file successfully removed."||
+echo "The Lock file has already been removed."
+
+# -----------------------------------------------------------------------
+
+# Show notify message that backup is created
 
 if [ -f "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" ]; then
   echo "Thunderbird backup successfully created."

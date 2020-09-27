@@ -1,0 +1,14 @@
+[Unit]
+Description=Thunderbird Backup Profile Service
+Wants=default.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/thunderbird-backup.sh
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
