@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Variables
 # options to use manual mode
 if [ "$1" = "-m" ] || [ "$1" = "--manual" ]; then
@@ -17,19 +18,19 @@ ATTEMPTS_TO_STOP_THUNDERBIRD=5
 
 # -----------------------------------------------------------------------
 
-# Check if the file already exists
-test -e "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" &&
-echo "The file: $BACKUP_FILENAME.tar.gz already exists. Removing..." &&
-rm -f "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" ||
-echo "The file $BACKUP_FILENAME.tar.gz doesn't exists. Backup creating..."
-
-# -----------------------------------------------------------------------
-
 # TODO Protect contre le controle + C pour fermer le script et ask un confirmation
 # TODO Ne pas avoir plus de 3 sauvegarde, trouver le moyen de supprimer les vieilles
 # TODO Faire un fichier de log
 # TODO Faire une copie sur un remote ou bien sur disque a mount => créer une seconde option pour avoir un second chemin de back up sur un disque de save.
 # TODO Faire un readme
+
+# -----------------------------------------------------------------------
+
+# Check if the file already exists
+test -e "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" &&
+echo "The file: $BACKUP_FILENAME.tar.gz already exists. Removing..." &&
+rm -f "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" ||
+echo "The file $BACKUP_FILENAME.tar.gz doesn't exists. Backup creating..."
 
 # -----------------------------------------------------------------------
 
@@ -117,7 +118,7 @@ popd >/dev/null || exit
 # Check if the lock file exists and remove it
 
 test -e $LOCK_FILE_PATH &&
-echo "Removing lock file..." &&
+echo "Removing the lock file..." &&
 rm -f $LOCK_FILE_PATH &&
 echo "The Lock file successfully removed."||
 echo "The Lock file has already been removed."
