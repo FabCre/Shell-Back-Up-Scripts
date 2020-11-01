@@ -119,9 +119,9 @@ echo "The Lock file has already been removed."
 
 # -----------------------------------------------------------------------
 
-# Check if there is file older than one week and remove it
+# Check if there is file older than four days and remove it
 find $BACKUP_FOLDER_PATH/* -type f -mtime +4 -exec rm -f {} \; &&
-echo "Oldest backup successfully removed."
+echo "Backup older than 4 days are successfully removed."
 
 # -----------------------------------------------------------------------
 
