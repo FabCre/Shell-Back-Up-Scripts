@@ -9,21 +9,15 @@ else
 fi
 
 TODAY=$(date '+%Y-%m-%d')                                               # format date 2020-06-28
-BACKUP_FOLDER_PATH=/home/panda/Documents/Backups/                       # path for the output
+BACKUP_FOLDER_PATH=/home/panda/Documents/Backups/Thunderbird/                       # path for the output
 BACKUP_FILENAME=thunderbird-profile-$TODAY                              # name of the generated back up
 THUNDERBIRD_PROFILE_PATH=/home/panda/.thunderbird/panda.default-release # path to the profile to save
-LOCK_FILE_PATH=/home/panda/Documents/Backups/thunderbird-backup.lock    # path to the temporary lock file
+LOCK_FILE_PATH=/home/panda/Documents/Backups/Thunderbird/thunderbird-backup.lock    # path to the temporary lock file
 IS_THUNDERBIRD_RUNNING=0
 ATTEMPTS_TO_STOP_THUNDERBIRD=5
 
 # -----------------------------------------------------------------------
-
-# TODO Protect contre le controle + C pour fermer le script et ask un confirmation
 # TODO Ne pas avoir plus de 3 sauvegarde, trouver le moyen de supprimer les vieilles
-# TODO Faire un fichier de log
-# TODO Faire une copie sur un remote ou bien sur disque a mount => créer une seconde option pour avoir un second chemin de back up sur un disque de save.
-# TODO Faire un readme
-
 # -----------------------------------------------------------------------
 
 # Check if the file already exists
@@ -105,7 +99,7 @@ fi
 
 # -----------------------------------------------------------------------
 
-# Now we can do backup, note: to disable silent mode remove below ">/dev/null" and "-q" flag
+# Now we can do backup, note: to disable silent mode remove below ">/dev/null"
 
 echo "Thunderbird backup in progress..."
 pushd $THUNDERBIRD_PROFILE_PATH >/dev/null || exit
@@ -125,6 +119,12 @@ echo "The Lock file has already been removed."
 
 # -----------------------------------------------------------------------
 
+# Check if there is file older than one week and remove it
+find $BACKUP_FOLDER_PATH/* -type f -mtime +2 -exec rm -f {} \; &&
+echo "Oldest backup successfully removed."
+
+# -----------------------------------------------------------------------
+
 # Show notify message that backup is created
 
 if [ -f "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" ]; then
@@ -136,4 +136,5 @@ else
     zenity --error --text "Thunderbird backup hasn't created.\nUnexpected error occurred." --width=400
   fi
 fi
+
 # -----------------------------------------------------------------------
