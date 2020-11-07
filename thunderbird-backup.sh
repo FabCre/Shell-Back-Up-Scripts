@@ -8,17 +8,13 @@ else
   MODE="Auto"
 fi
 
-TODAY=$(date '+%Y-%m-%d')                                               # format date 2020-06-28
-BACKUP_FOLDER_PATH=/home/panda/Documents/Backups/Thunderbird/                       # path for the output
-BACKUP_FILENAME=thunderbird-profile-$TODAY                              # name of the generated back up
-THUNDERBIRD_PROFILE_PATH=/home/panda/.thunderbird/panda.default-release # path to the profile to save
-LOCK_FILE_PATH=/home/panda/Documents/Backups/Thunderbird/thunderbird-backup.lock    # path to the temporary lock file
+TODAY=$(date '+%Y-%m-%d')                                                           # format date 2020-06-28
+BACKUP_FOLDER_PATH=                                                                 # path for the output
+BACKUP_FILENAME=thunderbird-profile-$TODAY                                          # name of the generated back up
+THUNDERBIRD_PROFILE_PATH=                                                           # path to the profile to save
+LOCK_FILE_PATH=                                                                     # path to the temporary lock file
 IS_THUNDERBIRD_RUNNING=0
 ATTEMPTS_TO_STOP_THUNDERBIRD=5
-
-# -----------------------------------------------------------------------
-# TODO Ne pas avoir plus de 3 sauvegarde, trouver le moyen de supprimer les vieilles
-# -----------------------------------------------------------------------
 
 # Check if the file already exists
 test -e "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" &&
@@ -120,6 +116,7 @@ echo "The Lock file has already been removed."
 # -----------------------------------------------------------------------
 
 # Check if there is file older than four days and remove it
+
 find $BACKUP_FOLDER_PATH/* -type f -mtime +4 -exec rm -f {} \; &&
 echo "Backup older than 4 days are successfully removed."
 
