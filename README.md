@@ -16,12 +16,16 @@ All scripts contains:
 
 For example, in thunderbird backup script:
 
+### Configure variables of the backup
+
 First of all, configure PATH variables in the script thunderbird-backup.sh:
 ```shell script
 BACKUP_FOLDER_PATH=YOUR/CUSTOM/PATH
 THUNDERBIRD_PROFILE_PATH=/home/YOUR_USER/.thunderbird/YOUR_USER.default-release
 LOCK_FILE_PATH=YOUR/CUSTOM/PATH
 ```
+
+### Manage script
 
 Copy the script to the /usr/local/bin directory:
 ```
@@ -30,8 +34,10 @@ sudo cp thunderbird-backup.sh /usr/local/bin
 
 Make it executable:
 ```
-sudo chmod +x /usr/local/bin/thunderbird-bakcup.sh
+sudo chmod +x /usr/local/bin/thunderbird-backup.sh
 ```
+
+### Manage service
 
 Copy the service to the /usr/lib/systemd/system/ directory:
 ```
@@ -74,6 +80,8 @@ To disable the service, if needed:
 ```
 sudo systemctl disable thunderbird-backup.service
 ```
+
+### Manage timer
 
 Copy the timer to the /usr/lib/systemd/system/ directory:
 ```

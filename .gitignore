@@ -2,12 +2,16 @@
 
 Keepass/keepass-backup-script.sh
 Keepass/keepass-backup-script.service
+Keepass/keepass-backup-script.timer
 
 Thunderbrid/thunderbird-backup-script.sh
 Thunderbrid/thunderbird-backup-script.service
+Thunderbrid/thunderbird-backup-script.timer
 
 Firefox/firefox-backup-script.sh
 Firefox/firefox-backup-script.service
+Firefox/firefox-backup-script.timer
 
-Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.service
 Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.sh
+Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.service
+Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.timer
