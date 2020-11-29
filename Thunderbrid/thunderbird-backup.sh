@@ -8,11 +8,11 @@ else
   MODE="Auto"
 fi
 
-TODAY=$(date '+%Y-%m-%d')                                                           # format date 2020-06-28
-BACKUP_FOLDER_PATH=                                                                 # path for the output
-BACKUP_FILENAME=thunderbird-profile-$TODAY                                          # name of the generated back up
-THUNDERBIRD_PROFILE_PATH=                                                           # path to the profile to save
-LOCK_FILE_PATH=                                                                     # path to the temporary lock file
+TODAY=$(date '+%Y-%m-%d')
+BACKUP_FOLDER_PATH=/home/panda/Documents/Backups/Thunderbird/
+BACKUP_FILENAME=thunderbird-profile-$TODAY
+THUNDERBIRD_PROFILE_PATH=/home/panda/.thunderbird/panda.default-release/
+LOCK_FILE_PATH=/home/panda/Documents/Backups/Thunderbird/thunderbird-backup.lock
 IS_THUNDERBIRD_RUNNING=0
 ATTEMPTS_TO_STOP_THUNDERBIRD=5
 
