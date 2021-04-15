@@ -23,6 +23,7 @@ First of all, configure PATH variables in the script thunderbird-backup.sh:
 BACKUP_FOLDER_PATH=YOUR/CUSTOM/PATH
 THUNDERBIRD_PROFILE_PATH=/home/YOUR_USER/.thunderbird/YOUR_USER.default-release
 LOCK_FILE_PATH=YOUR/CUSTOM/PATH
+BACKUPS_OLDER_THAN=4
 ```
 
 ### Manage script
