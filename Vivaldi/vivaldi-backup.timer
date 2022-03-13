@@ -1,0 +1,9 @@
+[Unit]
+Description=Vivaldi Backup Profile Timer
+
+[Timer]
+OnCalendar=Sun *-*-* 15:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

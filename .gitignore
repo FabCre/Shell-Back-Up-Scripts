@@ -12,6 +12,10 @@ Firefox/firefox-backup-script.sh
 Firefox/firefox-backup-script.service
 Firefox/firefox-backup-script.timer
 
+Vivaldi/vivaldi-backup-script.sh
+Vivaldi/vivaldi-backup-script.service
+Vivaldi/vivaldi-backup-script.timer
+
 Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.sh
 Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.service
 Linux-manjaro-kde-profil/linux-manjaro-kde-profile-backup-script.timer
