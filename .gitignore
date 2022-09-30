@@ -1,4 +1,5 @@
 .idea
+.ideavimrc
 
 Keepass/keepass-backup-script.sh
 Keepass/keepass-backup-script.service

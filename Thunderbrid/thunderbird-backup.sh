@@ -15,7 +15,7 @@ THUNDERBIRD_PROFILE_PATH=
 LOCK_FILE_PATH=
 IS_THUNDERBIRD_RUNNING=0
 ATTEMPTS_TO_STOP_THUNDERBIRD=5
-BACKUPS_OLDER_THAN=4
+BACKUPS_OLDER_THAN=14
 
 # Check if the file already exists
 test -e "$BACKUP_FOLDER_PATH/$BACKUP_FILENAME.tar.gz" &&
@@ -116,7 +116,7 @@ echo "The Lock file has already been removed."
 
 # -----------------------------------------------------------------------
 
-# Check if there is file older than four days and remove it
+# Check if there is file older than fourteen days and remove it
 
 find $BACKUP_FOLDER_PATH/* -type f -mtime +$BACKUPS_OLDER_THAN -exec rm -f {} \; &&
 echo "Backup older than $BACKUPS_OLDER_THAN days are successfully removed."

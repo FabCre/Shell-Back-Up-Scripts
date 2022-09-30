@@ -6,8 +6,8 @@ After=syslog.target network-online.target
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/firefox-backup.sh
-Restart=on-failure
-RestartSec=10
+Restart=no
+RestartSec=3600
 KillMode=process
 
 [Install]
